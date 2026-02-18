@@ -7,7 +7,7 @@ dotenv.config();
 const app: Application = express();
 const PORT: number = Number(process.env.BACKEND_PORT) || 3000;
 
-app.get("/", (_req: Request, res: Response): void => {
+app.get("/", (req: Request, res: Response): void => {
   res.status(200);
   res.send("Hello, World from Backend");
 });
