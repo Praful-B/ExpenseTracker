@@ -3,16 +3,14 @@ dotenv.config();
 import { Application, Request, Response } from "express";
 import express from "express";
 import connectDB from "../src/config/database";
-
+import authRoutes from "../src/routes/authentication.route";
 const app: Application = express();
+app.use(express.json());
 
 const PORT: number = Number(process.env.BACKEND_PORT) || 3000;
 connectDB();
 
-app.get("/", (req: Request, res: Response): void => {
-  res.status(200);
-  res.send("Hello, World from Backend");
-});
+app.use("/auth", authRoutes);
 
 app.listen(PORT, (error?: Error): void => {
   if (!error) {

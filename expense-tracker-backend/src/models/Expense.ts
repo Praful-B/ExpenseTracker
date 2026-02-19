@@ -6,7 +6,7 @@ interface IExpense extends Document {
   category?: string;
   date?: Date;
   notes?: string;
-  userId: string;
+  userId: mongoose.Types.ObjectId;
 }
 
 const ExpenseSchema: Schema = new Schema<IExpense>({
@@ -18,7 +18,7 @@ const ExpenseSchema: Schema = new Schema<IExpense>({
   },
   date: { type: Date, default: Date.now },
   notes: { type: String },
-  userId: { type: String, required: true, ref: "User" },
+  userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
 });
 
 export default mongoose.model<IExpense>("Expense", ExpenseSchema);
