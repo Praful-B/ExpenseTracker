@@ -1,7 +1,10 @@
 import { Request, Response } from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import bcrypt from "bcrypt";
 const saltRounds = Number(process.env.SALT_ROUNDS) || 10;
 import User from "../models/User";
+import jwt from "jsonwebtoken";
 
 export const createUser = async (req: Request, res: Response) => {
   try {
@@ -55,7 +58,13 @@ export const loginUser = async (req: Request, res: Response) => {
       return;
     }
 
-    res.status(200).json({ message: "Login Successfull" });
+    const token = jwt.sign(
+      { userId: user._id },
+      process.env.JWT_SECRET_TOKEN as string,
+      { expiresIn: "7d" },
+    );
+
+    res.status(200).json({ message: "Login Successfull", token });
   } catch (err) {
     res.status(500).json({ error: "Server Error", err });
   }
