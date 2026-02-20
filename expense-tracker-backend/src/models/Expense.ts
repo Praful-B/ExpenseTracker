@@ -14,7 +14,7 @@ const ExpenseSchema: Schema = new Schema<IExpense>({
   amount: { type: Number, required: true },
   category: {
     type: String,
-    enum: ["food", "social", "stationary", "travel", "util"],
+    enum: ["default", "food", "social", "stationary", "travel", "util"],
   },
   date: { type: Date, default: Date.now },
   notes: { type: String },
