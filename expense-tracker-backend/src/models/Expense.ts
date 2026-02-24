@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 interface IExpense extends Document {
-  taskId: string;
+  // taskId: string;
   amount: number;
   category?: string;
   date?: Date;
@@ -10,7 +10,7 @@ interface IExpense extends Document {
 }
 
 const ExpenseSchema: Schema = new Schema<IExpense>({
-  taskId: { type: String, required: true, unique: true },
+  // taskId: { type: String, required: true, unique: true },
   amount: { type: Number, required: true },
   category: {
     type: String,
