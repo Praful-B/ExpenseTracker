@@ -5,17 +5,27 @@ export default function AddExpensePage() {
     const amount = formData.get("amount");
     const category = formData.get("category");
     const notes = formData.get("notes");
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("You must be logged in to add an expense");
+      return;
+    }
+
     const response = await fetch(
       `${import.meta.env.VITE_API_URL}/expense/createExpense`,
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({ amount, category, notes }),
       },
     );
     const data = await response.json();
     if (response.ok) {
-      alert("successfully added expense: " + data.expense);
+      alert("successfully added expense: ");
     } else {
       alert(data.error);
     }
@@ -23,7 +33,7 @@ export default function AddExpensePage() {
   return (
     <>
       <form onSubmit={addExpense}>
-        <input type="number" placeholder="amount" />
+        <input type="number" name="amount" placeholder="amount" />
         <label htmlFor="category">Choose a category:</label>
         <select name="category" id="category">
           <option value="food">none</option>

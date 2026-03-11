@@ -1,15 +1,21 @@
-export default function Dashboard() {
-  function getLocalStorage() {
-    const token = localStorage.getItem("token");
-    alert(token);
-  }
+import AddExpensePanel from "../components/AddExpensePanel";
+import DashboardHeader from "../components/DashboardHeader";
+import ExpenseBreakdown from "../components/ExpenseBreakdown";
+import ExpenseTrend from "../components/ExpenseTrend";
+import RecentTransactionsPanel from "../components/RecentTransactionPanel";
+import SpendingOverview from "../components/SpendingOverview";
+import TotalExpenseVsMonthlyBudget from "../components/TotalExpenseVsMonthlyBudget";
 
+export default function Dashboard() {
   return (
     <>
-      <h1>DashBoard</h1>
-      <form action={getLocalStorage}>
-        <button type="submit">get token</button>
-      </form>
+      <DashboardHeader />
+      <AddExpensePanel />
+      <ExpenseBreakdown />
+      <RecentTransactionsPanel />
+      <SpendingOverview />
+      <TotalExpenseVsMonthlyBudget />
+      <ExpenseTrend />
     </>
   );
 }

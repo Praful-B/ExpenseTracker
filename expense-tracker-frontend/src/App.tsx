@@ -1,5 +1,5 @@
-import AddExpensePage from "./features/CrudOperations/pages/AddExpensePage";
+import Dashboard from "./features/Authentication/pages/Dashboard";
 
 export default function App() {
-  return <AddExpensePage />;
+  return <Dashboard />;
 }
