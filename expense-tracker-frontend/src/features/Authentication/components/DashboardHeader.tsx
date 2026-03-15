@@ -1,13 +1,14 @@
-import {Button} from "@/components/ui/button.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 export default function DashboardHeader() {
   return (
     <>
-      <div className="flex-row">
+      <div className="flex flex-row items-center justify-between">
+        <h1 className="">Expense Tracker</h1>
         <form>
-          <h1 className="">Expense Tracker</h1>
+          <Button>Export</Button>
           <Button>Settings</Button>
-          <Button>logout</Button>
+          <Button>Add</Button>
         </form>
       </div>
     </>

@@ -1,0 +1,14 @@
+### Create expense
+POST {{baseUrl}}/expenses/createExpense
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "amount": 1,
+  "notes": "food1",
+  "category": "food"
+}
+
+### Query All Expenses
+GET {{baseUrl}}/expense/getAllExpense
+Authorization: Bearer {{authToken}}
