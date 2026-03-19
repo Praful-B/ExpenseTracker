@@ -22,6 +22,7 @@ A full-stack personal expense tracking web application built with the MERN stack
 ## Tech Stack
 
 ### Frontend
+
 - React 18 with TypeScript
 - Vite
 - Tailwind CSS
@@ -31,46 +32,11 @@ A full-stack personal expense tracking web application built with the MERN stack
 - Lucide React (icons)
 
 ### Backend
+
 - Node.js
 - Express.js
 - MongoDB with Mongoose
 - JSON Web Tokens (JWT) for authentication
-
----
-
-## Project Structure
-
-```
-fintrak/
-├── client/                         # React frontend
-│   ├── src/
-│   │   ├── features/
-│   │   │   └── Authentication/
-│   │   │       ├── pages/
-│   │   │       │   ├── Dashboard.tsx
-│   │   │       │   ├── UserLoginPage.tsx
-│   │   │       │   └── UserRegistrationPage.tsx
-│   │   │       └── components/
-│   │   │           ├── DashboardHeader.tsx
-│   │   │           ├── AddExpensePanel.tsx
-│   │   │           ├── RecentTransactionPanel.tsx
-│   │   │           ├── ExpenseBreakdown.tsx
-│   │   │           ├── SpendingOverview.tsx
-│   │   │           ├── TotalExpenseVsMonthlyBudget.tsx
-│   │   │           └── ExpenseTrend.tsx
-│   │   └── utils/
-│   │       └── ProtectedRoutes.tsx
-│   └── .env
-└── server/                         # Express backend
-    ├── routes/
-    │   ├── auth.js
-    │   └── expense.js
-    ├── models/
-    │   ├── User.js
-    │   └── Expense.js
-    └── middleware/
-        └── auth.js
-```
 
 ---
 
@@ -129,20 +95,20 @@ The app will be available at `http://localhost:5173`.
 
 ### Auth
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/auth/register` | Register a new user |
-| POST | `/auth/login` | Login and receive a JWT |
+| Method | Endpoint         | Description             |
+| ------ | ---------------- | ----------------------- |
+| POST   | `/auth/register` | Register a new user     |
+| POST   | `/auth/login`    | Login and receive a JWT |
 
 ### Expenses
 
 All expense routes require a valid JWT passed as `Authorization: Bearer <token>`.
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/expense/getAllExpense` | Fetch all expenses for the logged-in user |
-| POST | `/expense/createExpense` | Create a new expense |
-| DELETE | `/expense/deleteExpense/:id` | Delete an expense by ID |
+| Method | Endpoint                     | Description                               |
+| ------ | ---------------------------- | ----------------------------------------- |
+| GET    | `/expense/getAllExpense`     | Fetch all expenses for the logged-in user |
+| POST   | `/expense/createExpense`     | Create a new expense                      |
+| DELETE | `/expense/deleteExpense/:id` | Delete an expense by ID                   |
 
 ---
 
@@ -165,11 +131,11 @@ Fintrak uses stateless JWT authentication. On login, the token is stored in `loc
 
 ## Environment Variables
 
-| Variable | Location | Description |
-|----------|----------|-------------|
-| `MONGO_URI` | server/.env | MongoDB connection string |
-| `JWT_SECRET` | server/.env | Secret key for signing JWTs |
-| `PORT` | server/.env | Port for the Express server |
+| Variable       | Location    | Description                  |
+| -------------- | ----------- | ---------------------------- |
+| `MONGO_URI`    | server/.env | MongoDB connection string    |
+| `JWT_SECRET`   | server/.env | Secret key for signing JWTs  |
+| `PORT`         | server/.env | Port for the Express server  |
 | `VITE_API_URL` | client/.env | Base URL for the backend API |
 
 ---
